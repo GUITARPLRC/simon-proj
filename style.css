@@ -9,7 +9,7 @@ body {
 }
 
 .game {
-	position:realtive;
+	position:relative;
 	margin:50px auto;
 	padding:1%;
 	width:500px;
@@ -23,6 +23,18 @@ body {
 .game div {
 	display:inline-block;
 	margin:2%;
+}
+
+
+.name {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(50%, 50%);
+	width:100px;
+	height:100px;
+	background-color:#222;
+	color:#fff;
 }
 
 .red {
@@ -83,20 +95,16 @@ body {
 	left:80%;
 	float:right;
 	border:5px solid #000;
-	width:125px;
-	height:100px;
-	background-color:#fff;
+	width:200px;
+	height:75px;
+	background-color:#999;
+	color:yellow;
 }
 .highScore {
-	padding-bottom:5%;
-	border-bottom:2px solid #000;
 }
 .currScore {
-	
 }
 #highScore {
-	text-align:center;
 }
 #currScore {
-	text-align:center;
 }
