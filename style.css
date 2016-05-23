@@ -3,54 +3,100 @@
 	padding:0;
 }
 
-section {
+body {
+	position:relative;
+	background-color:#ecf0f1;
+}
+
+.game {
+	position:realtive;
 	margin:50px auto;
+	padding:1%;
 	width:500px;
 	height:500px;
 	font-size:0;
 	border-radius:50%;
 	box-shadow:0 0 20px #000;
+	background-color:#222;
 }
 
-section div {
+.game div {
 	display:inline-block;
+	margin:2%;
 }
 
 .red {
-	width:50%;
-	height:50%;
+	width:46%;
+	height:46%;
 	background-color:#e74c3c;
 	border-top-left-radius:100%;
 }
 .red:hover {
 	opacity:0.7;
+	cursor:pointer;
 }
 .green {
-	width:50%;
-	height:50%;
+	width:46%;
+	height:46%;
 	background-color:#2ecc71;
 	border-top-right-radius:100%;
 }
 .green:hover {
 	opacity:0.7;
+	cursor:pointer;
 }
 .blue {
-	width:50%;
-	height:50%;
+	width:46%;
+	height:46%;
 	background-color:#3498db;
 	border-bottom-left-radius:100%;
 }
 .blue:hover {
 	opacity:0.7;
+	cursor:pointer;
 }
 .yellow {
-	width:50%;
-	height:50%;
+	width:46%;
+	height:46%;
 	background-color:#f1c40f;
 	border-bottom-right-radius:100%;
 }
 .yellow:hover {
 	opacity:0.7;
+	cursor:pointer;
+}
+.name {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(50%, 50%);
+	border-radius:50%;
+	width:10%;
+	background-color:#222;
+	color:#fff;
+	z-index:10000;
 }
 
-
+.scoreBox {
+	position:absolute;
+	top:10%;
+	left:80%;
+	float:right;
+	border:5px solid #000;
+	width:125px;
+	height:100px;
+	background-color:#fff;
+}
+.highScore {
+	padding-bottom:5%;
+	border-bottom:2px solid #000;
+}
+.currScore {
+	
+}
+#highScore {
+	text-align:center;
+}
+#currScore {
+	text-align:center;
+}
