@@ -2,13 +2,15 @@ var red = document.getElementById("red"),
 		green = document.getElementById("green"),
 		blue = document.getElementById("blue"),
 		yellow = document.getElementById("yellow"),
-		randNum = 0;
+		start = document.getElementById("start"),
+		end = document.getElementById("end"),
+		randNum = 0,
 		sequence = [];
 		
-red.addEventListener("click", function(){}, false);
-green.addEventListener("click", function(){}, false);
-blue.addEventListener("click", function(){}, false);
-yellow.addEventListener("click", function(){}, false);
+red.addEventListener("click", checkSequence(1), false);
+green.addEventListener("click", checkSequence(2), false);
+blue.addEventListener("click", checkSequence(3), false);
+yellow.addEventListener("click", checkSequence(4), false);
 
 start.addEventListener("click", chooseColor(), false);
 end.addEventListener("click", end(), false);
@@ -20,38 +22,53 @@ function randomNum() {
 }
 
 function chooseColor() {
-	var timer = setTimeout(showColor(), 1000);
 	
-	randomNum();
+	randomNum(); //GENERATE RANDOM NUMBER
+	sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
 	
-	switch(randNum) {
-		case 1: //red
-			showColor(red);
-			break;
-		case 2: //green
-			showColor(green);
-			break;
-		case 3: //blue
-			showColor(blue);
-			break;
-		case 4: //yellow
-			showColor("yellow");
-			break;
+	for (var i = 0; i < sequence.length; i++) { //ITERATE THROUGH SEQUENCE ARRAY
+	
+		switch(sequence[i]) { //ILLUMINATE COLORS IN SEQUENCE
+			case 1: //red
+				showColor(red);
+				break;
+			case 2: //green
+				showColor(green);
+				break;
+			case 3: //blue
+				showColor(blue);
+				break;
+			case 4: //yellow
+				showColor(yellow);
+				break;
+		}
+	
 	}
 	
-	sequence.push(randNum);
-	
 }
 
-function showColor(a){
+function showColor(a){ //MAKE COLORS BLINK
 	
-	a.className += "select";
+	setTimeout( function(a){
+	a.className += "select"}, 1000);
 	
+	setTimeout( function(a) {
+	a.className -= "select"}, 1000);
 }
 
-function checkSequence() {
+function checkSequence(n) { //CHECK IF INPUT IS IN CORRECT ORDER
+	var check = sequence; // SET VAR AS TO NOT MESS WITH ORGINAL ORDER
 	
-	
+	if (n === check[0]) { //INCREASE SCORE AND REMOVE FIRST INDEX
+		
+		score++;
+		check.shift();
+		
+	} else { //GAME OVER
+		
+		end();
+		
+	}
 	
 }
 
