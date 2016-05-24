@@ -29,18 +29,20 @@ function chooseColor() {
 	for (var i = 0; i < sequence.length; i++) { //ITERATE THROUGH SEQUENCE ARRAY
 	
 		switch(sequence[i]) { //ILLUMINATE COLORS IN SEQUENCE
-			case 1: //red
+		
+			case 1: //1 = red
 				showColor(red);
 				break;
-			case 2: //green
+			case 2: //2 = green
 				showColor(green);
 				break;
-			case 3: //blue
+			case 3: //3 = blue
 				showColor(blue);
 				break;
-			case 4: //yellow
+			case 4: //4 = yellow
 				showColor(yellow);
 				break;
+				
 		}
 	
 	}
@@ -48,12 +50,14 @@ function chooseColor() {
 }
 
 function showColor(a){ //MAKE COLORS BLINK
+	var b = a;
 	
-	setTimeout( function(a){
-	a.className += "select"}, 1000);
+	setTimeout( function(b){
+		a.className += "select"}, 1000);
 	
-	setTimeout( function(a) {
-	a.className -= "select"}, 1000);
+	setTimeout( function(b) {
+		a.classList.remove("select")}, 500);
+	
 }
 
 function checkSequence(n) { //CHECK IF INPUT IS IN CORRECT ORDER

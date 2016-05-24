@@ -73,14 +73,22 @@ body {
 	opacity:1;
 }
 
+.btnGroup {
+	text-align:center;
+}
+
 button {
-	margin:0 auto;
 	width:100px;
 	height:50px;
 	font-size:24px;
 	background-color:#000;
 	color:#fff;
 	border-radius:5%;
-	border:none;
+	border:1px solid #000;;
+	outline:none;
 	cursor:pointer;
+}
+button:hover {
+	background-color:#fff;
+	color:#000;
 }
