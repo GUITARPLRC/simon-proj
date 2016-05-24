@@ -4,6 +4,7 @@
 }
 
 body {
+	font-family:Helvetica, Arial, sans-serif;
 	position:relative;
 	background-color:#ecf0f1;
 }
@@ -25,86 +26,51 @@ body {
 	margin:2%;
 }
 
-
-.name {
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translate(50%, 50%);
-	width:100px;
-	height:100px;
-	background-color:#222;
-	color:#fff;
-}
-
 .red {
 	width:46%;
 	height:46%;
+	opacity:0.7;
 	background-color:#e74c3c;
 	border-top-left-radius:100%;
 }
 .red:hover {
-	opacity:0.7;
+	opacity:1;
 	cursor:pointer;
 }
 .green {
 	width:46%;
 	height:46%;
+	opacity:0.7;
 	background-color:#2ecc71;
 	border-top-right-radius:100%;
 }
 .green:hover {
-	opacity:0.7;
+	opacity:1;
 	cursor:pointer;
 }
 .blue {
 	width:46%;
 	height:46%;
+	opacity:0.7;
 	background-color:#3498db;
 	border-bottom-left-radius:100%;
 }
 .blue:hover {
-	opacity:0.7;
+	opacity:1;
 	cursor:pointer;
 }
 .yellow {
 	width:46%;
 	height:46%;
+	opacity:0.7;
 	background-color:#f1c40f;
 	border-bottom-right-radius:100%;
 }
 .yellow:hover {
-	opacity:0.7;
+	opacity:1;
 	cursor:pointer;
 }
-.name {
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translate(50%, 50%);
-	border-radius:50%;
-	width:10%;
-	background-color:#222;
-	color:#fff;
-	z-index:10000;
-}
 
-.scoreBox {
-	position:absolute;
-	top:10%;
-	left:80%;
-	float:right;
-	border:5px solid #000;
-	width:200px;
-	height:75px;
-	background-color:#999;
-	color:yellow;
-}
-.highScore {
-}
-.currScore {
-}
-#highScore {
-}
-#currScore {
+.select {
+	opacity:1;
 }
