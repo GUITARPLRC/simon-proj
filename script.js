@@ -7,7 +7,8 @@ var red = document.getElementById("red"),
 		randNum = 0,
 		score = 0,
 		sequence = [],
-		check = [];
+		check = [],
+    i = 0;
 
 start.addEventListener("click", chooseColor, false);
 end.addEventListener("click", endGame, false);
@@ -22,15 +23,10 @@ function randomNum() {
 
 function chooseColor() {
 	
-	start.disabled = true;
-	end.disabled = false;
 	randomNum(); //GENERATE RANDOM NUMBER
 	sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
-	check = sequence; // SET TO NOT MESS WITH ORGINAL ORDER
-	loop();	
-  var i = 0;
 		
-	function loop(){
+	(function loop(){
 		
 			
     switch(sequence[i]) { //ILLUMINATE COLORS IN SEQUENCE
@@ -66,12 +62,17 @@ function chooseColor() {
       setTimeout(loop, 1000);
     }
     
-	} // end loop function
+	})(); // end loop function
 		
 	red.addEventListener("click", checkSequence(1), false);
 	green.addEventListener("click", checkSequence(2), false);
 	blue.addEventListener("click", checkSequence(3), false);
 	yellow.addEventListener("click", checkSequence(4), false);
+  
+	start.disabled = true;
+	end.disabled = false;
+  
+	check = sequence; // SET TO NOT MESS WITH ORGINAL ORDER
 	
 }
 
@@ -105,7 +106,8 @@ function checkSequence(n) { //CHECK IF INPUT IS IN CORRECT ORDER
 
 function endGame() {
 	
-	sequence = [];
+  i = 0;
+  sequence = [];
 	check = [];
 	score = 0;
 	start.disabled = false;
