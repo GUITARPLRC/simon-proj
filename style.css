@@ -32,40 +32,40 @@ body {
 	border-top-left-radius:100%;
 }
 .red:hover {
-	opacity:1;
+	opacity:0.8;
 	cursor:pointer;
 }
 .green {
 	width:46%;
 	height:46%;
-	opacity:0.7;
+	opacity:0.5;
 	background-color:#2ecc71;
 	border-top-right-radius:100%;
 }
 .green:hover {
-	opacity:1;
+	opacity:0.8;
 	cursor:pointer;
 }
 .blue {
 	width:46%;
 	height:46%;
-	opacity:0.7;
+	opacity:0.5;
 	background-color:#3498db;
 	border-bottom-left-radius:100%;
 }
 .blue:hover {
-	opacity:1;
+	opacity:0.8;
 	cursor:pointer;
 }
 .yellow {
 	width:46%;
 	height:46%;
-	opacity:0.7;
+	opacity:0.5;
 	background-color:#f1c40f;
 	border-bottom-right-radius:100%;
 }
 .yellow:hover {
-	opacity:1;
+	opacity:0.8;
 	cursor:pointer;
 }
 

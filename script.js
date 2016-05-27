@@ -7,7 +7,8 @@ var red = document.getElementById("red"),
 		randNum = 0,
 		counter = 0, //COUNTER FOR ADDING NEXT IN SEQUENCE
 		score = 0,
-		sequence = [];
+		sequence = [],
+		check = [];
 		
 red.addEventListener("click", checkSequence(1), false);
 green.addEventListener("click", checkSequence(2), false);
@@ -35,6 +36,7 @@ function chooseColor() {
 		end.disabled = false;
 		randomNum(); //GENERATE RANDOM NUMBER
 		sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
+		check = sequence; // SET VAR AS TO NOT MESS WITH ORGINAL ORDER
 		
 		for (var j = 0; j < sequence.length; j++) { //ITERATE THROUGH SEQUENCE ARRAY
 		
@@ -85,29 +87,25 @@ function removeColor(b) { //MAKE COLORS APPEAR "OFF"
 }
 
 function checkSequence(n) { //CHECK IF INPUT IS IN CORRECT ORDER
-	var check = sequence; // SET VAR AS TO NOT MESS WITH ORGINAL ORDER
 	
-	for (var i = 0; i < check.length; i++) {
-	
-		if (n === check[i]) { //INCREASE SCORE AND REMOVE FIRST INDEX
-			
-			score++;
-			check.shift();
-			
-		} else { //WRONG CHOICE = GAME OVER!
-			
-			endGame();
-			
-		}
+	if (n === check[0]) { //INCREASE SCORE AND REMOVE FIRST INDEX
+		
+		score++;
+		check.shift();
+		chooseColor;
+		
+	} else { //WRONG CHOICE = GAME OVER!
+		
+		endGame();
+		
 	}
-	
-	chooseColor;
 	
 }
 
 function endGame() {
 	
 	sequence = [];
+	check = [];
 	counter = 0;
 	score = 0;
 	start.disabled = false;
