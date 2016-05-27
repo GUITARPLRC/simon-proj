@@ -5,7 +5,7 @@ var red = document.getElementById("red"),
 		start = document.getElementById("start"),
 		end = document.getElementById("end"),
 		randNum = 0,
-		coutner = 0,
+		counter = 0, //COUNTER FOR ADDING NEXT IN SEQUENCE
 		score = 0,
 		sequence = [];
 		
@@ -26,7 +26,8 @@ function randomNum() {
 }
 
 function chooseColor() {
-	counter = 1;
+	
+	counter++;
 
 	for (var i = 0; i < counter; i++) {
 	
@@ -41,23 +42,33 @@ function chooseColor() {
 			
 				case 1: //1 = red
 					showColor(red);
+					setTimeout(function(){
+						removeColor(red);
+					}, 500);
 					break;
 				case 2: //2 = green
 					showColor(green);
+					setTimeout(function(){
+						removeColor(green);
+					}, 500);
 					break;
 				case 3: //3 = blue
 					showColor(blue);
+					setTimeout(function(){
+						removeColor(blue);
+					}, 500);
 					break;
 				case 4: //4 = yellow
 					showColor(yellow);
+					setTimeout(function(){
+						removeColor(yellow);
+					}, 500);
 					break;
 					
 			}
 		
 		}
 	}
-	
-	counter++;
 	
 }
 
@@ -97,8 +108,9 @@ function checkSequence(n) { //CHECK IF INPUT IS IN CORRECT ORDER
 function endGame() {
 	
 	sequence = [];
-	counter = 1;
-	start.disable = false;
-	end.disable = true;
+	counter = 0;
+	score = 0;
+	start.disabled = false;
+	end.disabled = true;
 	
 }
