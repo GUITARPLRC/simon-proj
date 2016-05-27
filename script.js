@@ -5,15 +5,9 @@ var red = document.getElementById("red"),
 		start = document.getElementById("start"),
 		end = document.getElementById("end"),
 		randNum = 0,
-		counter = 0, //COUNTER FOR ADDING NEXT IN SEQUENCE
 		score = 0,
 		sequence = [],
 		check = [];
-		
-red.addEventListener("click", checkSequence(1), false);
-green.addEventListener("click", checkSequence(2), false);
-blue.addEventListener("click", checkSequence(3), false);
-yellow.addEventListener("click", checkSequence(4), false);
 
 start.addEventListener("click", chooseColor, false);
 end.addEventListener("click", endGame, false);
@@ -28,49 +22,56 @@ function randomNum() {
 
 function chooseColor() {
 	
-	counter++;
-
-	for (var i = 0; i < counter; i++) {
-	
-		start.disabled = true;
-		end.disabled = false;
-		randomNum(); //GENERATE RANDOM NUMBER
-		sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
-		check = sequence; // SET VAR AS TO NOT MESS WITH ORGINAL ORDER
+	start.disabled = true;
+	end.disabled = false;
+	randomNum(); //GENERATE RANDOM NUMBER
+	sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
+	check = sequence; // SET TO NOT MESS WITH ORGINAL ORDER
+	loop();	
+  var i = 0;
 		
-		for (var j = 0; j < sequence.length; j++) { //ITERATE THROUGH SEQUENCE ARRAY
+	function loop(){
 		
-			switch(sequence[j]) { //ILLUMINATE COLORS IN SEQUENCE
 			
-				case 1: //1 = red
-					showColor(red);
-					setTimeout(function(){
-						removeColor(red);
-					}, 500);
-					break;
-				case 2: //2 = green
-					showColor(green);
-					setTimeout(function(){
-						removeColor(green);
-					}, 500);
-					break;
-				case 3: //3 = blue
-					showColor(blue);
-					setTimeout(function(){
-						removeColor(blue);
-					}, 500);
-					break;
-				case 4: //4 = yellow
-					showColor(yellow);
-					setTimeout(function(){
-						removeColor(yellow);
-					}, 500);
-					break;
-					
-			}
+    switch(sequence[i]) { //ILLUMINATE COLORS IN SEQUENCE
+    
+      case 1: //1 = red
+        showColor(red);
+        setTimeout(function(){
+          removeColor(red);
+        }, 500);
+        break;
+      case 2: //2 = green
+        showColor(green);
+        setTimeout(function(){
+          removeColor(green);
+        }, 500);
+        break;
+      case 3: //3 = blue
+        showColor(blue);
+        setTimeout(function(){
+          removeColor(blue);
+        }, 500);
+        break;
+      case 4: //4 = yellow
+        showColor(yellow);
+        setTimeout(function(){
+          removeColor(yellow);
+        }, 500);
+        break;
+        
+    }
+    
+    if (++i < sequence.length) {
+      setTimeout(loop, 1000);
+    }
+    
+	} // end loop function
 		
-		}
-	}
+	red.addEventListener("click", checkSequence(1), false);
+	green.addEventListener("click", checkSequence(2), false);
+	blue.addEventListener("click", checkSequence(3), false);
+	yellow.addEventListener("click", checkSequence(4), false);
 	
 }
 
@@ -92,7 +93,7 @@ function checkSequence(n) { //CHECK IF INPUT IS IN CORRECT ORDER
 		
 		score++;
 		check.shift();
-		chooseColor;
+		chooseColor();
 		
 	} else { //WRONG CHOICE = GAME OVER!
 		
@@ -106,7 +107,6 @@ function endGame() {
 	
 	sequence = [];
 	check = [];
-	counter = 0;
 	score = 0;
 	start.disabled = false;
 	end.disabled = true;
