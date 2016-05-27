@@ -17,7 +17,7 @@ yellow.addEventListener("click", checkSequence(4), false);
 start.addEventListener("click", chooseColor, false);
 end.addEventListener("click", endGame, false);
 
-end.disable = false;
+end.disabled = true;
 
 function randomNum() {
 	
@@ -30,7 +30,8 @@ function chooseColor() {
 
 	for (var i = 0; i < counter; i++) {
 	
-		start.disable = true;
+		start.disabled = true;
+		end.disabled = false;
 		randomNum(); //GENERATE RANDOM NUMBER
 		sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
 		

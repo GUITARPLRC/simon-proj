@@ -9,7 +9,7 @@ body {
 }
 
 .game {
-	margin:40px auto;
+	margin:30px auto;
 	padding:1%;
 	width:500px;
 	height:500px;
@@ -84,11 +84,14 @@ button {
 	background-color:#000;
 	color:#fff;
 	border-radius:5%;
-	border:1px solid #000;;
+	border:1px solid #000;
 	outline:none;
 	cursor:pointer;
 }
 button:hover {
 	background-color:#fff;
 	color:#000;
+}
+button:disabled {
+	background-color:#888;
 }
