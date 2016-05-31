@@ -13,6 +13,16 @@ var red = document.getElementById("red"),
 start.addEventListener("click", chooseColor, false);
 end.addEventListener("click", endGame, false);
 
+red.addEventListener("click", checkSequence(1), false);
+green.addEventListener("click", checkSequence(2), false);
+blue.addEventListener("click", checkSequence(3), false);
+yellow.addEventListener("click", checkSequence(4), false);
+
+red.disabled = true;
+green.disabled = true;
+blue.disabled = true;
+yellow.disabled = true;
+
 end.disabled = true;
 
 function randomNum() {
@@ -63,16 +73,16 @@ function chooseColor() {
     }
     
 	})(); // end loop function
-		
-	red.addEventListener("click", checkSequence(1), false);
-	green.addEventListener("click", checkSequence(2), false);
-	blue.addEventListener("click", checkSequence(3), false);
-	yellow.addEventListener("click", checkSequence(4), false);
   
 	start.disabled = true;
 	end.disabled = false;
   
 	check = sequence; // SET TO NOT MESS WITH ORGINAL ORDER
+  
+  red.disabled = false;
+  green.disabled = false;
+  blue.disabled = false;
+  yellow.disabled = false;
 	
 }
 
@@ -94,7 +104,16 @@ function checkSequence(n) { //CHECK IF INPUT IS IN CORRECT ORDER
 		
 		score++;
 		check.shift();
-		chooseColor();
+    
+    if (check.length === 0) {
+    
+      chooseColor();
+      red.disabled = true;
+      green.disabled = true;
+      blue.disabled = true;
+      yellow.disabled = true;
+    
+    }
 		
 	} else { //WRONG CHOICE = GAME OVER!
 		
