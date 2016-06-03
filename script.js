@@ -28,40 +28,41 @@ end.disabled = true;
 function randomNum() {
   
   randNum = Math.floor((Math.random() * 4) + 1);
+  sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
   
 }
 
 function chooseColor() {
   
   randomNum(); //GENERATE RANDOM NUMBER
-  sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
-    
-  (function loop(){
+  loop();
+  
+  function loop(){
     
       
     switch(sequence[i]) { //ILLUMINATE COLORS IN SEQUENCE
     
       case 1: //1 = red
         showColor(red);
-        setTimeout(function(){
+        setInterval(function(){
           removeColor(red);
         }, 500);
         break;
       case 2: //2 = green
         showColor(green);
-        setTimeout(function(){
+        setInterval(function(){
           removeColor(green);
         }, 500);
         break;
       case 3: //3 = blue
         showColor(blue);
-        setTimeout(function(){
+        setInterval(function(){
           removeColor(blue);
         }, 500);
         break;
       case 4: //4 = yellow
         showColor(yellow);
-        setTimeout(function(){
+        setInterval(function(){
           removeColor(yellow);
         }, 500);
         break;
@@ -69,15 +70,13 @@ function chooseColor() {
     }
     
     if (++i < sequence.length) {
-      setTimeout(loop, 1000);
+      setInterval(loop, 1000);
     }
     
-  })(); // end loop function
+  }; // end loop function
   
   start.disabled = true;
   end.disabled = false;
-  
-  check = sequence; // SET TO NOT MESS WITH ORGINAL ORDER
   
   red.disabled = false;
   green.disabled = false;
@@ -98,12 +97,14 @@ function removeColor(b) { //MAKE COLORS APPEAR "OFF"
   
 }
 
-function checkSequence(n) { //CHECK IF INPUT IS IN CORRECT ORDER
-  score++;
+function checkSequence(n) { //CHECK IF USER INPUT IS IN CORRECT ORDER
+  
+  check = sequence; // SET TO NOT MESS WITH ORGINAL ORDER
 
   if (n === check[0]) { //INCREASE SCORE AND REMOVE FIRST INDEX
   
-    check.splice(0,1);
+    score++;
+    check.shift();
     
     if (check.length === 0) {
     
