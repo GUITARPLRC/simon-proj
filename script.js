@@ -37,44 +37,6 @@ function chooseColor() {
   randomNum(); //GENERATE RANDOM NUMBER
   loop();
   
-  function loop(){
-    
-      
-    switch(sequence[i]) { //ILLUMINATE COLORS IN SEQUENCE
-    
-      case 1: //1 = red
-        showColor(red);
-        setInterval(function(){
-          removeColor(red);
-        }, 500);
-        break;
-      case 2: //2 = green
-        showColor(green);
-        setInterval(function(){
-          removeColor(green);
-        }, 500);
-        break;
-      case 3: //3 = blue
-        showColor(blue);
-        setInterval(function(){
-          removeColor(blue);
-        }, 500);
-        break;
-      case 4: //4 = yellow
-        showColor(yellow);
-        setInterval(function(){
-          removeColor(yellow);
-        }, 500);
-        break;
-        
-    }
-    
-    if (++i < sequence.length) {
-      setInterval(loop, 1000);
-    }
-    
-  }; // end loop function
-  
   start.disabled = true;
   end.disabled = false;
   
@@ -82,6 +44,45 @@ function chooseColor() {
   green.disabled = false;
   blue.disabled = false;
   yellow.disabled = false;
+  
+}
+
+function loop(){
+    
+  switch(sequence[i]) { //ILLUMINATE COLORS IN SEQUENCE
+  
+    case 1: //1 = red
+      showColor(red);
+      setTimeout(function(){
+        removeColor(red);
+      }, 500);
+      break;
+    case 2: //2 = green
+      showColor(green);
+      setTimeout(function(){
+        removeColor(green);
+      }, 500);
+      break;
+    case 3: //3 = blue
+      showColor(blue);
+      setTimeout(function(){
+        removeColor(blue);
+      }, 500);
+      break;
+    case 4: //4 = yellow
+      showColor(yellow);
+      setTimeout(function(){
+        removeColor(yellow);
+      }, 500);
+      break;
+      
+  }
+  
+  if (++i < sequence.length) {
+    setTimeout(loop, 1000);
+  }
+  
+  check = sequence.slice(0);
   
 }
 
@@ -99,7 +100,7 @@ function removeColor(b) { //MAKE COLORS APPEAR "OFF"
 
 function checkSequence(n) { //CHECK IF USER INPUT IS IN CORRECT ORDER
   
-  check = sequence; // SET TO NOT MESS WITH ORGINAL ORDER
+  i = 0; //RESET INDEX FOR ITERATING THROUGH SEQUENCE
 
   if (n === check[0]) { //INCREASE SCORE AND REMOVE FIRST INDEX
   
