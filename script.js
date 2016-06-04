@@ -14,14 +14,16 @@ var red = document.getElementById("red"),
 start.addEventListener("click", chooseColor, false);
 end.addEventListener("click", endGame, false);
 
-red.addEventListener("click", function() { checkSequence(1) }, false);
-green.addEventListener("click", function() { checkSequence(2) }, false);
-blue.addEventListener("click", function() { checkSequence(3) }, false);
-yellow.addEventListener("click", function() { checkSequence(4) }, false);
+red.addEventListener("click", function() { checkSequence(1); }, false);
+green.addEventListener("click", function() { checkSequence(2); }, false);
+blue.addEventListener("click", function() { checkSequence(3); }, false);
+yellow.addEventListener("click", function() { checkSequence(4); }, false);
 
 end.disabled = true;
 
-function randomNum() {
+disableMouse(); //DISABLE MOUSE EVENTS ON COLORS
+
+function randomNum() { //GENERATE RANDOM NUMBER
   
   randNum = Math.floor((Math.random() * 4) + 1);
   sequence.push(randNum); //PUSH RANDOM NUMBER TO ARRAY
@@ -30,8 +32,8 @@ function randomNum() {
 
 function chooseColor() {
   
+  randomNum();
   document.body.style.backgroundColor = "#ecf0f1";
-  randomNum(); //GENERATE RANDOM NUMBER
   loop();
   
   start.disabled = true;
@@ -41,9 +43,9 @@ function chooseColor() {
   
 }
 
-function loop(){
+function loop(){ //ILLUMINATE COLORS IN SEQUENCE
     
-  switch(sequence[i]) { //ILLUMINATE COLORS IN SEQUENCE
+  switch(sequence[i]) {
   
     case 1: //1 = red
       showColor(red);
@@ -78,6 +80,8 @@ function loop(){
   
   check = sequence.slice(0);
   
+  enableMouse();
+  
 }
 
 function showColor(a){ //MAKE COLORS APPEAR "ON"
@@ -107,6 +111,7 @@ function checkSequence(n) { //CHECK IF USER INPUT IS IN CORRECT ORDER
     if (check.length === 0) {
     
       chooseColor();
+      disableMouse();
     
     }
     
@@ -133,6 +138,24 @@ function changeScore() {
   
 }
 
+function enableMouse() { //ENABLE MOUSE EVENTS ON COLORS
+  
+  red.style.pointerEvents = "auto";
+  green.style.pointerEvents = "auto";
+  blue.style.pointerEvents = "auto";
+  yellow.style.pointerEvents = "auto";
+  
+}
+
+function disableMouse() { //DISABLE MOUSE EVENTS ON COLORS
+  
+  red.style.pointerEvents = "none";
+  green.style.pointerEvents = "none";
+  blue.style.pointerEvents = "none";
+  yellow.style.pointerEvents = "none";
+  
+}
+
 function endGame() {
   
   i = 0;
@@ -140,6 +163,7 @@ function endGame() {
   check = [];
   start.disabled = false;
   end.disabled = true;
-  changeScore()
+  changeScore();
+  disableMouse();
   
 }
