@@ -4,9 +4,10 @@ var red = document.getElementById("red"),
     yellow = document.getElementById("yellow"),
     start = document.getElementById("start"),
     end = document.getElementById("end"),
+    myScore = document.getElementById("score");
     randNum = 0,
     score = 0,
-    sequence = [2,3],
+    sequence = [],
     check = [],
     i = 0;
     
@@ -17,11 +18,6 @@ red.addEventListener("click", function() { checkSequence(1) }, false);
 green.addEventListener("click", function() { checkSequence(2) }, false);
 blue.addEventListener("click", function() { checkSequence(3) }, false);
 yellow.addEventListener("click", function() { checkSequence(4) }, false);
-
-red.disabled = true;
-green.disabled = true;
-blue.disabled = true;
-yellow.disabled = true;
 
 end.disabled = true;
 
@@ -34,16 +30,14 @@ function randomNum() {
 
 function chooseColor() {
   
+  document.body.style.backgroundColor = "#ecf0f1";
   randomNum(); //GENERATE RANDOM NUMBER
   loop();
   
   start.disabled = true;
   end.disabled = false;
   
-  red.disabled = false;
-  green.disabled = false;
-  blue.disabled = false;
-  yellow.disabled = false;
+  changeScore();
   
 }
 
@@ -105,24 +99,38 @@ function checkSequence(n) { //CHECK IF USER INPUT IS IN CORRECT ORDER
   if (n === check[0]) { //INCREASE SCORE AND REMOVE FIRST INDEX
   
     score++;
+ 
+    changeScore();
+    
     check.shift();
     
     if (check.length === 0) {
     
       chooseColor();
-      red.disabled = true;
-      green.disabled = true;
-      blue.disabled = true;
-      yellow.disabled = true;
     
     }
     
   } else { //WRONG CHOICE = GAME OVER!
     
     endGame();
+    document.body.style.backgroundColor = "red";
+    myScore.style.fontSize = "12px";
+    myScore.textContent = "GAME OVER";
     
   }
  
+}
+
+function changeScore() {
+  
+  if (score >=100) {
+    myScore.style.fontSize = "45px";
+  } else {
+    myScore.style.fontSize = "50px";
+  }
+  
+  myScore.textContent = score;
+  
 }
 
 function endGame() {
@@ -130,8 +138,8 @@ function endGame() {
   i = 0;
   sequence = [];
   check = [];
-  score = 0;
   start.disabled = false;
   end.disabled = true;
+  changeScore()
   
 }
