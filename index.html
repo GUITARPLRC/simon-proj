@@ -2,37 +2,39 @@
 <html>
 	<head>
 	
-		<title>Simon Says</title>
+		<title>Memory Game</title>
 		
-		<link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+		<link rel="icon" href="../images/myLogo.ico">
+		
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css">
 	
 	</head>
 	<body>
 	
-	<section class="game">
-		<div class="red" id="red" value="1"></div>
-		<div class="green" id="green" value="2"></div>
-		<div class="blue" id="blue" value="3"></div>
-		<div class="yellow" id="yellow" value="4"></div>
-	</section>
-	
-	<div class="btnGroup">
-		<button id="start">START</button>
-		<button id="end">END</button>
-	</div>
-  
-  <section class="scoreboard">
-  
-    <h3>Score</h3>
-    
-    <div class="numbers">
-      <span id="score"></span>
-    </div>
-    
-  </section>
-	
-	<script src="script.js"></script>
+        <section class="game">
+            <div class="red" id="red" value="1"></div>
+            <div class="green" id="green" value="2"></div>
+            <div class="blue" id="blue" value="3"></div>
+            <div class="yellow" id="yellow" value="4"></div>
+        </section>
+
+        <div class="btnGroup">
+            <button type="submit" id="start">START</button>
+            <button type="submit" id="end">END</button>
+        </div>
+
+        <section class="scoreboard">
+
+        <h3>Score</h3>
+
+        <div class="numbers">
+          <span id="score"></span>
+        </div>
+
+        </section>
+
+        <script src="script.js"></script>
 	</body>
 </html>

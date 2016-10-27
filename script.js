@@ -7,9 +7,10 @@ var red = document.getElementById("red"),
     myScore = document.getElementById("score");
     randNum = 0,
     score = 0,
+    steps = 0,
     sequence = [],
     check = [],
-    i = 0;
+    i = 0; // sequence iterator
     
 start.addEventListener("click", chooseColor, false);
 end.addEventListener("click", endGame, false);
@@ -33,7 +34,7 @@ function randomNum() { //GENERATE RANDOM NUMBER
 function chooseColor() {
   
   randomNum();
-  document.body.style.backgroundColor = "#ecf0f1";
+  document.body.style.backgroundColor = "#ecf0f1"; // CHANGE!!! add class to background
   loop();
   
   start.disabled = true;
@@ -44,6 +45,8 @@ function chooseColor() {
 }
 
 function loop(){ //ILLUMINATE COLORS IN SEQUENCE
+    
+  disableMouse();
     
   switch(sequence[i]) {
   
@@ -118,8 +121,8 @@ function checkSequence(n) { //CHECK IF USER INPUT IS IN CORRECT ORDER
   } else { //WRONG CHOICE = GAME OVER!
     
     endGame();
-    document.body.style.backgroundColor = "red";
-    myScore.style.fontSize = "12px";
+    document.body.style.backgroundColor = "red"; // CHANGE!! remove class from background
+    myScore.style.fontSize = "12px"; //CHANGE!! add class to myScore
     myScore.textContent = "GAME OVER";
     
   }
@@ -159,6 +162,7 @@ function disableMouse() { //DISABLE MOUSE EVENTS ON COLORS
 function endGame() {
   
   i = 0;
+  score = 0;
   sequence = [];
   check = [];
   start.disabled = false;
